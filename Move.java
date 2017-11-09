@@ -34,6 +34,9 @@ public class Move {
         return blackPly;
     }
 
+    /**
+     * @return String representation of a move
+     */
     public String toString() {
         return "" + whitePly.getTo().toString() + ", "
                   + blackPly.getTo().toString();

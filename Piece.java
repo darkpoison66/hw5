@@ -64,4 +64,6 @@ public abstract class Piece {
      * @param square the square of the piece
      */
     public abstract Square[] movesFrom(Square square);
+
+
 }

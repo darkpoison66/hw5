@@ -13,10 +13,10 @@ public class Tester {
         Optional<String> com = Optional.of("purple");
         Optional<String> comp = Optional.empty();
 
-        Ply second = new Ply(a, blackF, blackT, com);
-        Ply first = new Ply(b, whiteF, whiteT, com);
-        Ply third = new Ply(a, new Square("a2"), new Square("a3"), com);
-        Ply fourth = new Ply(b, new Square("a6"), new Square("a5"), com);
+        Ply second = new Ply(a, blackF, blackT, comp);
+        Ply first = new Ply(b, whiteF, whiteT, comp);
+        Ply third = new Ply(a, new Square("a2"), new Square("a3"), comp);
+        Ply fourth = new Ply(new Queen(Color.BLACK), new Square("a6"), new Square("a5"), comp);
 
         Move numbaOne = new Move(first, second);
         Move numbaTwo = new Move(third, fourth);
@@ -28,7 +28,7 @@ public class Tester {
         ChessGame chess = new ChessGame(list);
 
         List<Move> noComments = new ArrayList<>();
-        noComments = chess.getMovesWithoutComment();
+        noComments = chess.getMovesWithPiece(new Queen(Color.BLACK));
         System.out.println(noComments);
 
 
