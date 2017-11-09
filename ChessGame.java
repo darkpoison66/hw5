@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 
+
 /**
  * Represnts a squence of Moves in a game of chess
  * @version 1.0
@@ -45,8 +46,11 @@ public class ChessGame {
      */
     public List<Move> filter(Predicate<Move> filter) {
         List<Move> filteredList = new ArrayList<>();
-        Stream<Move> stream = moves.stream();
-        stream.filter(filter).forEach((a) -> filteredList.add(a));
+        for (Move move: moves) {
+            if (filter.test(move)) {
+                filteredList.add(move);
+            }
+        }
         return filteredList;
     }
 
@@ -106,8 +110,10 @@ public class ChessGame {
     public class Coolio implements Predicate<Move> {
         @Override
         public boolean test(Move move) {
-            return (move.getWhitePly().getPiece().equals(filterPiece)
-                   || move.getBlackPly().getPiece().equals(filterPiece));
+            return (move.getWhitePly().getPiece().
+                algebraicName().equals(filterPiece.algebraicName())
+                   || move.getBlackPly().getPiece().
+                   algebraicName().equals(filterPiece.algebraicName()));
         }
     }
 
