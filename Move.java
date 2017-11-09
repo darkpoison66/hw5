@@ -34,5 +34,10 @@ public class Move {
         return blackPly;
     }
 
+    public String toString() {
+        return "" + whitePly.getTo().toString() + ", "
+                  + blackPly.getTo().toString();
+    }
+
 
 }
